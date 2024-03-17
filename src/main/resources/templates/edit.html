@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Task</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+<body class="container">
+<div class="row justify-content-center mt-5">
+    <div class="col-md-6">
+        <h1 class="text-center text-primary mb-4">Edit Task</h1>
+        <form th:action="@{/edit}" method="post" th:object="${foundItem}" class="needs-validation" novalidate>
+            <input type="hidden" th:field="*{id}">
+            <div class="mb-3">
+                <label for="task" class="form-label">Task</label>
+                <input type="text" class="form-control" id="task" th:field="*{task}" required>
+                <div class="invalid-feedback">Please provide a task.</div>
+            </div>
+            <div class="mb-3 form-check">
+                <input type="checkbox" class="form-check-input" id="isDone" th:field="*{isDone}">
+                <label class="form-check-label" for="isDone">Mark as Done</label>
+            </div>
+            <div class="mb-3">
+                <label for="description" class="form-label">Description</label>
+                <input type="text" class="form-control" id="description" th:field="*{description}">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-j5mcL6ZLH0OTcwUW5tUe7ji2t6kaQZSh/iVC9vhjJS3tuGExyz4Jlpb6B/bTJ2d0" crossorigin="anonymous"></script>
+</body>
+</html>
